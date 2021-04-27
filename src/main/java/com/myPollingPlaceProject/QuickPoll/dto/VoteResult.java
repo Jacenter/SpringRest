@@ -22,6 +22,6 @@ public class VoteResult {
         this.results = results;
     }
 
-    public void settotalVotes(int totalVotes) {
+    public void setTotalVotes(int totalVotes) {
     }
 }
