@@ -2,7 +2,6 @@ package com.myPollingPlaceProject.QuickPoll.handler;
 
 import com.myPollingPlaceProject.QuickPoll.dto.error.ErrorDetail;
 import com.myPollingPlaceProject.QuickPoll.dto.error.ValidationError;
-import com.myPollingPlaceProject.QuickPoll.exception.ResourceNotFoundException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -42,18 +41,6 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
         errorDetail.setDetail(manve.getMessage());
         errorDetail.setDeveloperMessage(manve.getClass().getName());
         return handleExceptionInternal(manve, errorDetail, headers, status, request);
-    }
-
-    @ExceptionHandler(ResourceNotFoundException.class)
-    public ResponseEntity<?> handleResourceNotFoundException (ResourceNotFoundException rnfe, HttpServletRequest request) {
-        ErrorDetail errorDetail = new ErrorDetail();
-        errorDetail.setTimeStamp(new Date().getTime());
-        errorDetail.setStatus(HttpStatus.NOT_FOUND.value());
-        errorDetail.setTitle("Resource Not Found");
-        errorDetail.setDetail(rnfe.getMessage());
-        errorDetail.setDeveloperMessage(rnfe.getClass().getName());
-
-        return new ResponseEntity<>(errorDetail, null, HttpStatus.NOT_FOUND);
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
