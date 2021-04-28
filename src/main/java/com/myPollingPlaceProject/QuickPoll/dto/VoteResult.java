@@ -1,5 +1,4 @@
 package com.myPollingPlaceProject.QuickPoll.dto;
-
 import java.util.Collection;
 
 public class VoteResult {
