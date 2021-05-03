@@ -42,7 +42,7 @@ public class PollController {
     @RequestMapping(value = "/polls/{pollId}", method = RequestMethod.PUT)
     public ResponseEntity<?> updatePoll (@RequestBody Poll poll, @PathVariable Long pollId) {
         pollService.updatePoll(poll, pollId);
-        return new ResponseEntity<>(HttpStatus.CREATED);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
     //delete a poll

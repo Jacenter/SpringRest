@@ -1,5 +1,4 @@
 package com.myPollingPlaceProject.QuickPoll.services;
-
 import com.myPollingPlaceProject.QuickPoll.domain.Vote;
 import com.myPollingPlaceProject.QuickPoll.dto.OptionCount;
 import com.myPollingPlaceProject.QuickPoll.dto.VoteResult;
@@ -21,7 +20,7 @@ public class ComputeResultService {
         Iterable<Vote> allVotes = voteRepository.findByPoll(pollId);
         //algorithm to count votes
         int totalVotes = 0;
-        Map<Long, OptionCount> tempMap = new HashMap<>();
+        Map<Long, OptionCount> tempMap = new HashMap<Long, OptionCount>();
         for (Vote v : allVotes) {
             totalVotes ++;
             OptionCount optionCount = tempMap.get(v.getOption().getId());

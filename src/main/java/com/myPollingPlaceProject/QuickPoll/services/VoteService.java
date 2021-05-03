@@ -6,8 +6,6 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import java.util.Optional;
-
 @Service
 public class VoteService {
 
@@ -24,7 +22,7 @@ public class VoteService {
     }
 
     //get all votes from a poll
-    public Optional<Vote> getAllVotes(Long pollId) {
-        return voteRepository.findById(pollId);
+    public void getAllVotes(Long pollId) {
+        Iterable<Vote> allVotes = voteRepository.findByPoll(pollId);
     }
 }

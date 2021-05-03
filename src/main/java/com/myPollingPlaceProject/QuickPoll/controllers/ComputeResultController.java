@@ -1,4 +1,5 @@
 package com.myPollingPlaceProject.QuickPoll.controllers;
+import com.myPollingPlaceProject.QuickPoll.dto.VoteResult;
 import com.myPollingPlaceProject.QuickPoll.services.ComputeResultService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -14,8 +15,9 @@ public class ComputeResultController {
     @Autowired
     private ComputeResultService computeResultService;
 
-    @RequestMapping(value = "/computeresult", method = RequestMethod.GET)
+    @RequestMapping(value = "/computeResult", method = RequestMethod.GET)
     public ResponseEntity<?> computeResult (@RequestParam Long pollId) {
+        computeResultService.computeResult(pollId);
         return new ResponseEntity<>(computeResultService.computeResult(pollId), HttpStatus.OK);
     }
 

@@ -7,8 +7,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Optional;
-
 @RestController
 public class VoteController {
 
@@ -27,9 +25,8 @@ public class VoteController {
 
     //get all votes from a poll
     @RequestMapping(value = "/polls/{pollId}/votes", method = RequestMethod.GET)
-    public ResponseEntity<?> getAllVotes(@PathVariable Long pollId) {
+    public Iterable<Vote> getAllVotes(@PathVariable Long pollId) {
         voteService.getAllVotes(pollId);
-        return new ResponseEntity<>(voteRepository.findByPoll(pollId), HttpStatus.OK);
-
+        return voteRepository.findByPoll(pollId);
         }
 }

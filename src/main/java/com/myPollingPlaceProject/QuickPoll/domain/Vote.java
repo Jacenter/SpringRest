@@ -1,5 +1,4 @@
 package com.myPollingPlaceProject.QuickPoll.domain;
-
 import javax.persistence.*;
 
 @Entity
