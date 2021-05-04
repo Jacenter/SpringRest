@@ -30,15 +30,15 @@ public class VoteController {
 
     //deleting a vote from a poll
     @RequestMapping(value = "/polls/votes/{voteId}", method = RequestMethod.DELETE)
-    public ResponseEntity<?> deleteVote(@PathVariable Long voteId, @RequestBody Vote vote){
+    public ResponseEntity<?> deleteVote(@PathVariable Long voteId){
         voteService.deleteVote(voteId);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
     //get all votes from a poll
     @RequestMapping(value = "/polls/{pollId}/votes", method = RequestMethod.GET)
-    public ResponseEntity<?> getAllVotes(@PathVariable Long pollId) {
+    public Iterable<Vote> getAllVotes(@PathVariable Long pollId) {
         pollService.verifyPoll(pollId);
-        return new ResponseEntity<>(voteService.getAllVotes(pollId), HttpStatus.OK);
+        return voteService.getAllVotes(pollId);
         }
 }

@@ -24,9 +24,8 @@ public class VoteService {
     }
 
     //get all votes from a poll
-    public List<Vote> getAllVotes(Long pollId) {
-        voteRepository.findByPoll(pollId);
-        return (List<Vote>) voteRepository.findByPoll(pollId);
+    public Iterable<Vote> getAllVotes(Long pollId) {
+        return voteRepository.findByPoll(pollId);
     }
 
     //deleting a vote
