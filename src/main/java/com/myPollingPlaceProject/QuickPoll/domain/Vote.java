@@ -1,17 +1,21 @@
 package com.myPollingPlaceProject.QuickPoll.domain;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import javax.persistence.*;
 
 @Entity
 public class Vote {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.TABLE)
     @Column(name = "VOTE_ID")
     private Long id;
 
     @ManyToOne
     @JoinColumn(name = "OPTION_ID")
     private Option option;
+
 
     public Long getId() {
         return id;

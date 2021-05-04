@@ -1,7 +1,5 @@
 package com.myPollingPlaceProject.QuickPoll.dto.error;
 
-import org.springframework.boot.context.properties.bind.validation.ValidationErrors;
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;

@@ -1,5 +1,6 @@
 package com.myPollingPlaceProject.QuickPoll.handler;
 import com.myPollingPlaceProject.QuickPoll.dto.error.ErrorDetail;
+import com.myPollingPlaceProject.QuickPoll.dto.error.ValidationError;
 import com.myPollingPlaceProject.QuickPoll.exception.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;

@@ -15,7 +15,7 @@ public class PollService {
     @Autowired
     private PollRepository pollRepository;
 
-    protected void verifyPoll(Long pollId) throws ResourceNotFoundException {
+    public void verifyPoll(Long pollId) throws ResourceNotFoundException {
         Optional<Poll> poll = pollRepository.findById(pollId);
         if (pollRepository.existsById(pollId) == false) {
             throw new ResourceNotFoundException("Poll with id " + pollId + " not found");
@@ -44,7 +44,6 @@ public class PollService {
     }
 
     public void updatePoll(Poll poll, Long pollId) {
-        // Save the entity
         verifyPoll(pollId);
         pollRepository.save(poll);
     }

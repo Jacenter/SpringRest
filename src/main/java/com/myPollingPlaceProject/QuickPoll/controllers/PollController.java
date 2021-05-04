@@ -25,6 +25,7 @@ public class PollController {
         return new ResponseEntity<>(pollRepository.findAll(), HttpStatus.OK);
     }
 
+    //create a poll
     @RequestMapping(value = "/polls", method = RequestMethod.POST)
     public ResponseEntity<?> createPoll (@Valid @RequestBody Poll poll) {
         pollService.createPoll(poll);

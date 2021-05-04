@@ -6,6 +6,8 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import java.util.List;
+
 @Service
 public class VoteService {
 
@@ -22,7 +24,13 @@ public class VoteService {
     }
 
     //get all votes from a poll
-    public void getAllVotes(Long pollId) {
-        Iterable<Vote> allVotes = voteRepository.findByPoll(pollId);
+    public List<Vote> getAllVotes(Long pollId) {
+        voteRepository.findByPoll(pollId);
+        return (List<Vote>) voteRepository.findByPoll(pollId);
+    }
+
+    //deleting a vote
+    public void deleteVote(Long voteId){
+        voteRepository.deleteById(voteId);
     }
 }
